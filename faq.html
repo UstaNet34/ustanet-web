@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSS — UstaNet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root { --black:#0C0C0C; --white:#FAFAF8; --gray:#6B6B6B; --light:#F0EFEB; --accent:#C8A96E; --border:#E2E0DA; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:var(--white); color:var(--black); line-height:1.6; }
+nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:20px 6%; background:rgba(250,250,248,0.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
+.nav-logo { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--black); text-decoration:none; }
+.nav-back { font-size:13px; color:var(--gray); text-decoration:none; transition:color 0.2s; }
+.nav-back:hover { color:var(--black); }
+.page { max-width:800px; margin:0 auto; padding:140px 6% 100px; }
+.page-label { font-size:11px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+.page-label::before { content:''; width:24px; height:1px; background:var(--accent); }
+h1 { font-family:'Playfair Display',serif; font-size:clamp(32px,4vw,52px); font-weight:700; letter-spacing:-1px; margin-bottom:12px; line-height:1.1; }
+.subtitle { font-size:16px; color:var(--gray); margin-bottom:60px; padding-bottom:40px; border-bottom:1px solid var(--border); font-weight:300; }
+.faq-group { margin-bottom:48px; }
+.faq-group-title { font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:24px; }
+.faq-item { border-top:1px solid var(--border); }
+.faq-item:last-child { border-bottom:1px solid var(--border); }
+.faq-q { display:flex; justify-content:space-between; align-items:center; padding:20px 0; cursor:pointer; gap:20px; }
+.faq-q span { font-size:16px; font-weight:400; color:var(--black); }
+.faq-icon { font-size:18px; color:var(--accent); flex-shrink:0; transition:transform 0.3s; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+.faq-a p { font-size:14px; color:var(--gray); line-height:1.8; padding-bottom:20px; font-weight:300; }
+.faq-item.open .faq-a { max-height:300px; }
+.contact-cta { background:var(--light); padding:40px; margin-top:60px; text-align:center; }
+.contact-cta h3 { font-family:'Playfair Display',serif; font-size:24px; margin-bottom:10px; }
+.contact-cta p { font-size:14px; color:var(--gray); margin-bottom:20px; font-weight:300; }
+.btn-dark { background:var(--black); color:var(--white); padding:12px 28px; font-size:13px; font-weight:500; text-decoration:none; font-family:'DM Sans',sans-serif; transition:opacity 0.2s; display:inline-block; }
+.btn-dark:hover { opacity:0.75; }
+footer { padding:40px 6%; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+.footer-logo { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--black); text-decoration:none; }
+.footer-copy { font-size:12px; color:var(--gray); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">UstaNet</a>
+  <a href="index.html" class="nav-back">← Ana Sayfa</a>
+</nav>
+
+<div class="page">
+  <div class="page-label">Yardım</div>
+  <h1>Sık Sorulan Sorular</h1>
+  <p class="subtitle">Aklınızdaki soruların yanıtları burada. Bulamadığınız bir şey varsa bize yazın.</p>
+
+  <div class="faq-group">
+    <div class="faq-group-title">Genel</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>UstaNet ücretsiz mi?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Evet, UstaNet tamamen ücretsizdir. Tüm özellikler — takvim, raporlar, grafik, bulut yedekleme — hiçbir ücret olmadan kullanılabilir.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>Hangi platformlarda çalışıyor?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Şu an Android'de kullanılabilir. Google Play'den ücretsiz indirebilirsiniz. iOS sürümü yakında geliyor.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>İnternet olmadan çalışır mı?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Evet. İnternet bağlantısı olmadan da kayıt ekleyebilir, düzenleyebilir ve görüntüleyebilirsiniz. Bağlantı geldiğinde veriler otomatik olarak buluta aktarılır.</p></div>
+    </div>
+  </div>
+
+  <div class="faq-group">
+    <div class="faq-group-title">Kayıt & Hesaplama</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>Mesai ücreti nasıl hesaplanıyor?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Mesai ücreti şu formülle hesaplanır: Günlük Yevmiye ÷ 8 × Mesai Çarpanı × Mesai Saati. Çarpanı Ayarlar ekranından değiştirebilirsiniz (varsayılan: 1.5).</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>Özel gün nedir?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Özel gün seçildiğinde o gün için 2 yevmiye hesaplanır (×2). Resmi tatillerde veya fazla mesai ücretinin 2 katına çıktığı günlerde kullanılır.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>Geçmiş aylardaki kayıtlara bakabilir miyim?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Evet. Ana ekrandaki ay seçici ile istediğiniz aya geçebilirsiniz. Tüm geçmiş kayıtlarınız saklanır ve erişilebilir.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>Yevmiyemi değiştirirsem eski kayıtlar etkilenir mi?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Hayır. Her kayıt, eklendiği andaki yevmiye tutarıyla kaydedilir. Yevmiyeyi değiştirmeniz yalnızca yeni eklenecek kayıtları etkiler.</p></div>
+    </div>
+  </div>
+
+  <div class="faq-group">
+    <div class="faq-group-title">Veri & Güvenlik</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>Verilerim güvende mi?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Evet. Verileriniz Google Firebase altyapısında şifreli olarak saklanır. Yalnızca siz erişebilirsiniz; hiçbir üçüncü tarafla paylaşılmaz.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>Telefon değiştirsem verilerimi kaybeder miyim?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Hayır. Hesabınıza giriş yaptığınızda tüm verileriniz otomatik olarak yeni cihaza aktarılır.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">
+        <span>Hesabımı nasıl silebilirim?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><p>Hesabınızı silmek için info@ustanet.net adresine e-posta gönderin. Talebiniz 30 gün içinde işleme alınır ve tüm verileriniz kalıcı olarak silinir.</p></div>
+    </div>
+  </div>
+
+  <div class="contact-cta">
+    <h3>Başka sorunuz mu var?</h3>
+    <p>Burada bulamadığınız sorularınız için bize yazın.</p>
+    <a href="mailto:info@ustanet.net" class="btn-dark">info@ustanet.net</a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">UstaNet</a>
+  <span class="footer-copy">© 2026 IronWeld Software</span>
+</footer>
+
+<script>
+function toggle(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>
